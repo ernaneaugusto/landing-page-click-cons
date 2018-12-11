@@ -417,3 +417,23 @@ p, a, .btn, label, th, td{
     }
 }
 
+/*** footer ***/
+footer{
+    background-color: $azul_escuro;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    p{
+        color: $branco;
+    }
+    h5{
+        font-size: $font18;
+        @include font_bold();
+    }
+    .footer-logo{
+        max-width: 100%;
+        @include media_query(768px){
+            display: block;
+            margin: 0 auto 2rem;
+        }
+    }
+}

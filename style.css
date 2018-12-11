@@ -6881,3 +6881,20 @@ p, a, .btn, label, th, td {
   #contato .contato-chamada .txt-destaque {
     color: #18527a;
     font-size: 28px; }
+
+/*** footer ***/
+footer {
+  background-color: #18527a;
+  padding-top: 7rem;
+  padding-bottom: 7rem; }
+  footer p {
+    color: #fff; }
+  footer h5 {
+    font-size: 18px;
+    font-family: 'SegoeUI-Bold', sans-serif; }
+  footer .footer-logo {
+    max-width: 100%; }
+    @media only screen and (max-width: 768px) {
+      footer .footer-logo {
+        display: block;
+        margin: 0 auto 2rem; } }

@@ -10,7 +10,7 @@
                 <p>Parcelas a partir de</p>
                 <h2 class="oferta-preco">R$ <span>479,</span> 63</h2>
                 <h5 class="oferta-obs">* foto ilustrativa consulte a versão e condições.</h5>
-                <img src="/landing-page-click-cons/src/img/up.png" alt="TAKE UP! 4 portas" title="TAKE UP! 4 portas" class="oferta-img" />
+                <img src="/landing-page-click-cons/src/img/take-up.png" alt="TAKE UP! 4 portas" title="TAKE UP! 4 portas" class="oferta-img" />
             </div>
             <div class="col-lg-4">
                 <div id="simulacao">
@@ -59,7 +59,7 @@
         <!-- /.row -->
 
         <div class="row mt-4">
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <h2 class="titulo-secao">Veja o Comparativo de <br/><span class="txt-destaque">Financiamento</span> x <span class="txt-destaque">Consórcio</span></h2>
                 
                 <div class="table-responsive-lg">
@@ -439,7 +439,7 @@
 
                     <button type="submit" class="btn btn-azul-escuro mb-2"><i class="fas fa-paper-plane text-verde"></i> Enviar</button>
                 </form>
-                <img src="/landing-page-click-cons/src/img/persona1.png" alt="Especialista Click Consórcio" class="call-img" />
+                <img src="/landing-page-click-cons/src/img/persona-call-to-action.png" alt="Especialista Click Consórcio" class="call-img" />
             </section>
         </div>
     </div>
@@ -494,7 +494,7 @@
             </form>
         </div>
         <div class="col d-none d-md-block">
-            <img src="/landing-page-click-cons/src/img/persona2.png" alt="Especialista Click Consórcio"class="contato-img" />
+            <img src="/landing-page-click-cons/src/img/persona-contato.png" alt="Especialista Click Consórcio" class="contato-img" />
         </div>
     </div>
 </div>
