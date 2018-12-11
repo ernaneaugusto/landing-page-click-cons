@@ -1,0 +1,419 @@
+/*
+Theme Name: Click Consórcios
+Theme URI: https://www.clickconsorcios.com.br/
+Author: Ernane
+Description: Tema criado para o site https://www.clickconsorcios.com.br/
+Version: 1.0
+*/
+
+/**** CORES ****/
+$branco: #fff;
+$preto: #000;
+$cinza_texto: #6d6e71;
+$verde: #25d366;
+$azul_escuro: #18527a;
+$azul: #0090db;
+$azul_claro: #d4effc;
+
+$theme-colors: (
+    "azul-escuro": $azul_escuro,
+    "azul": $azul,
+    "verde": $verde
+);
+
+/**** FONTES ****/
+@font-face {
+    font-family: 'SegoeUI-Regular';
+    src: url("src/fonts/SegoeUI/SegoeUI-Regular.ttf");
+}
+@font-face {
+    font-family: 'SegoeUI-Bold';
+    src: url("src/fonts/SegoeUI/SegoeUI-Bold.ttf");
+}
+
+/**** MIXINS E VARIAVEIS ****/
+$font12: 12px;
+$font14: 14px;
+$font16: 16px;
+$font17: 17px;
+$font18: 18px;
+$font20: 20px;
+$font28: 28px;
+$font24: 24px;
+$font36: 36px;
+$font40: 40px;
+$font45: 45px;
+$font90: 90px;
+$tam_borda: 10px;
+
+// fontes
+@mixin font_regular {
+    font-family: 'SegoeUI-Regular', sans-serif;
+}
+@mixin font_bold {
+    font-family: 'SegoeUI-Bold', sans-serif;
+}
+
+// efeitos
+@mixin transicao($elemento: all, $tempo: 0.3s) {
+    -webkit-transition: $tempo ease-in-out $elemento;
+    -o-transition: $tempo ease-in-out $elemento;
+    transition: $tempo ease-in-out $elemento;
+}
+
+@mixin transform($inicial: 1, $final: 1.1) {
+    -webkit-transform: scale($inicial);
+    -ms-transform: scale($inicial);
+    -moz-transform: scale($inicial);
+    transform: scale($inicial);
+
+    @include transicao;
+
+    &:hover {
+        -webkit-transform: scale($final);
+        -ms-transform: scale($final);
+        -moz-transform: scale($final);
+        transform: scale($final);
+        cursor: pointer;
+    }
+}
+
+@mixin borda_top_bottom($largura: 10px, $cor: $azul, $opacidade: .1){
+    border-top: $largura solid rgba($cor, $opacidade);
+    border-bottom: $largura solid rgba($cor, $opacidade);
+}
+
+/* MEDIA QUERYS */
+$mq_xs: 576px;
+$mq_sm: 768px;
+$mq_lg: 992px;
+$mq_xl: 1200px;
+
+@mixin media_query($media) {
+    @if $media == $mq_xs {
+        @media only screen and (max-width: $mq_xs) {
+            @content;
+        }
+    }
+    @else if $media == $mq_sm {
+        @media only screen and (max-width: $mq_sm) {
+            @content;
+        }
+    }
+    @else if $media == $mq_lg {
+        @media only screen and (max-width: $mq_lg) {
+            @content;
+        }
+    }
+    @else if $media == $mq_xl {
+        @media only screen and (max-width: $mq_xl) {
+            @content;
+        }
+    }
+}
+
+@mixin media_query_min($media) {
+    @if $media == $mq_xs {
+        @media only screen and (min-width: $mq_xs) {
+            @content;
+        }
+    }
+    @else if $media == $mq_sm {
+        @media only screen and (min-width: $mq_sm) {
+            @content;
+        }
+    }
+    @else if $media == $mq_lg {
+        @media only screen and (min-width: $mq_lg) {
+            @content;
+        }
+    }
+    @else if $media == $mq_xl {
+        @media only screen and (min-width: $mq_xl) {
+            @content;
+        }
+    }
+}
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Resets
+html{
+    font-size: 10px;
+}
+h1, h2, h3, h4, h5, h6, p, span, strong {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.3;
+    @include font_regular();
+    color: $cinza_texto;
+}
+p, a, .btn, label, th, td{
+    font-size: $font16;
+}
+.form-control{
+    font-size: $font14;
+    height: 34px;
+}
+
+// Estilos gerais
+.titulo-secao{
+    font-size: $font40;
+}
+
+// Helpers
+.txt-destaque{
+    text-transform: uppercase;
+    color: $verde;    
+    @include font_bold();
+}
+
+/*** #topo ***/
+#topo{
+    background-image: url('src/img/bg-topo.jpg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    #topo-tabela{
+        text-align: center;
+        thead tr th{
+            color: $branco;
+        }
+        tbody tr th,
+        tbody tr td{
+            background-color: $azul_claro;
+            &:last-child{
+                @include font_bold();
+                color: $branco;
+            }
+        }
+    }
+}
+#oferta-destaque{
+    .oferta-titulo, .oferta-preco, p, span{
+        color: $branco;
+        @include font_bold();
+    }
+    .oferta-titulo{
+        font-size: $font45;
+        text-transform: uppercase;
+    }
+    .oferta-preco{
+        font-size: $font45;
+        span{
+            font-size: $font90;
+        }
+    }
+    .oferta-obs{
+        color: $azul;
+        @include font_bold();
+        font-size: $font12;
+    }
+    .oferta-img{
+        width: 100%;
+    }
+}
+#simulacao{
+    background-color: $branco;
+    border: 10px solid rgba($branco, .5);
+    border-radius: .4rem;
+    padding: 2rem;
+    h3{
+        font-size: $font40;
+        color: $azul_escuro;
+        @include font_bold();
+        margin-bottom: 1rem;
+    }
+    .form-control{
+        border-color: $verde;
+    }
+    form{
+        border-radius: .4rem;
+        label{
+            font-size: $font14;
+        }
+    }
+}
+
+/*** #planos ***/
+#planos{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    background-image: url('src/img/bg-planos.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include borda_top_bottom(10px, $azul_escuro, .1);
+    .planos-icone{
+        border: 10px solid $verde;
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        background-color: $branco;
+        display: block;
+        margin: 0 auto;
+        
+        img{
+            display: block;
+            margin: 2rem auto 0;
+        }        
+    }
+    h3{
+        font-size: $font20;
+        color: $branco;
+        margin-top: 1rem;
+        @include font_bold();
+        @include media_query(768px){
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+
+/*** #experiencia-marca ***/
+#marca-consorcio{
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    p{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/*** #modelo ***/
+#modelos{
+    padding-bottom: 7rem;
+    background-image: url('src/img/bg-modelos.jpg');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: contain;
+    .modelos-container {
+        margin-bottom: 5rem;
+        @include media_query(992px){
+            margin-bottom: 0;
+        }
+        > article {
+            margin-top: 2rem;        
+            @include transform(1, 1.1);
+            @include media_query(992px){
+                margin-bottom: 2rem;
+            }
+            a{
+                border-radius: $tam_borda;        
+                display: block;
+                padding: 2rem 1rem;
+                text-align: center;
+                -webkit-box-shadow: 0px 5px 17px 0px rgba($preto, .25);
+                -moz-box-shadow: 0px 5px 17px 0px rgba($preto, .25);
+                box-shadow: 0px 5px 17px 0px rgba($preto, .25);
+                &:hover{
+                    text-decoration: none;
+                    display: block;
+                }            
+            }
+            .modelos-descricao,
+            .preco,
+            strong{
+                @include font_bold();
+            }
+            .modelos-descricao{
+                font-size: $font18;
+                color: $preto;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+            .preco{
+                color: $verde;
+                font-size: $font20;
+            }
+            strong{
+                font-size: $font18;
+            }
+            .btn{
+                font-size: $font17;
+                text-transform: uppercase;
+                @include font_bold();
+            }
+        }
+    }
+}
+
+/*** #call-to-action ***/
+#call-to-action{
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-image: url('src/img/bg-call-to-action.png');
+    background-position: left top;
+    position: relative;
+    background-size: contain;
+    @include borda_top_bottom(10px, $verde, .1);
+    
+    &::before{
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: block;
+        background-color: $verde;
+        z-index: -1;
+    }
+    .titulo-secao{
+        font-size: $font36;
+        text-shadow: 1px 1px 4px rgba($preto, .25); 
+        color: $branco;
+        .txt-destaque{
+            color: $branco;
+        }
+    }
+    input, .btn{
+        @include media_query(768px){
+            width: 100%;
+        }
+    }
+    .call-img{
+        max-width: 100%;
+        position: absolute;
+        bottom: -6rem;
+        right: 0;
+        height: 320px;
+        @include media_query(992px){
+            display: none;
+        }
+    }
+}
+
+/*** #contato ***/
+#contato{
+    padding-top: 10rem;
+    .container{
+        position: relative;
+    }
+    .contato-img {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 90%;
+    }
+    .contato-container{
+        margin-bottom: 2rem;
+        .contato-numeros{
+            font-size: $font24;
+            color: $azul_escuro;
+            @include font_bold();
+            .fa, .fas, .fab{
+                font-size: $font40;
+            }
+        }
+        
+    }
+    .contato-chamada{
+        .txt-destaque{
+            color: $azul_escuro;
+            font-size: $font28;
+        }
+    }
+}
+
